@@ -1,7 +1,7 @@
 "use client";
 
 import { useTheme } from "@/components/layout/ThemeProvider";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme();

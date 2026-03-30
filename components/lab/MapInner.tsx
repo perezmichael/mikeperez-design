@@ -88,12 +88,14 @@ export function MapInner({ events, selectedId, onSelectEvent }: MapInnerProps) {
       });
     });
 
+    const currentMarkers = markersRef.current;
+
     return () => {
       if (mapRef.current) {
         mapRef.current.remove();
         mapRef.current = null;
       }
-      markersRef.current.clear();
+      currentMarkers.clear();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

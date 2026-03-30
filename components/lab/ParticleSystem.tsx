@@ -7,7 +7,7 @@ export interface ParticleSystemHandle {
   setShape: (shape: "Sphere" | "Cube" | "Torus" | "Cloud") => void;
 }
 
-export const ParticleSystem = forwardRef<ParticleSystemHandle, {}>((_, ref) => {
+export const ParticleSystem = forwardRef<ParticleSystemHandle, Record<string, unknown>>((_, ref) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const pointsRef = useRef<THREE.Points | null>(null);
   const targetPositionsRef = useRef<Float32Array | null>(null);
@@ -124,15 +124,15 @@ export const ParticleSystem = forwardRef<ParticleSystemHandle, {}>((_, ref) => {
 
     window.addEventListener("resize", handleResize);
 
+    const container = containerRef.current;
+
     return () => {
       window.removeEventListener("resize", handleResize);
       renderer.dispose();
-      if (containerRef.current) {
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        containerRef.current.removeChild(renderer.domElement);
+      if (container) {
+        container.removeChild(renderer.domElement);
       }
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return <div ref={containerRef} className="w-full h-full" />;
