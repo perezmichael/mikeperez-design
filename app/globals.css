@@ -10,6 +10,9 @@
   --color-accent-2:  #d4a853;   /* warm gold — secondary */
   --color-fg:        #f0ebe3;   /* warm white — primary text */
   --color-muted:     #8a8278;   /* muted text */
+  --grain-opacity:   0.03;
+  --selection-bg:    var(--color-accent);
+  --btn-glow:        none;
 
   /* Typography */
   --font-sans:  var(--font-space-grotesk);
@@ -28,6 +31,23 @@
   --color-accent-2:  #D48853;   /* warm orange — secondary */
   --color-fg:        #2A2A28;   /* deep charcoal — primary text */
   --color-muted:     #7A7873;   /* muted text */
+  --grain-opacity:   0.015;
+  --selection-bg:    var(--color-accent);
+  --btn-glow:        none;
+}
+
+[data-theme="cinematic-noir"] {
+  /* Palette — Cinematic Noir */
+  --color-bg:        #0C0C0C;   /* Espresso Black */
+  --color-surface:   #161614;   /* Olive Charcoal */
+  --color-border:    #262624;   /* Architectural Grid */
+  --color-accent:    #DFFF00;   /* Toxic Lime */
+  --color-accent-2:  #E63900;   /* Vandell Burnt Orange */
+  --color-fg:        #F2F2EE;   /* Parchment White */
+  --color-muted:     #8A8A82;   /* Muted Olive */
+  --grain-opacity:   0.03;
+  --selection-bg:    #E63900;
+  --btn-glow:        0 0 40px -5px rgba(230, 57, 0, 0.4);
 }
 
 /* ─── Tailwind theme extension ───────────────────────────────────── */
@@ -67,7 +87,7 @@ body::before {
   inset: 0;
   pointer-events: none;
   z-index: 9999;
-  opacity: 0.03;
+  opacity: var(--grain-opacity, 0.03);
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 128px 128px;
@@ -81,7 +101,7 @@ body::before {
 
 /* ─── Selection ──────────────────────────────────────────────────── */
 ::selection {
-  background: var(--color-accent);
+  background: var(--selection-bg, var(--color-accent));
   color: var(--color-fg);
 }
 
@@ -93,4 +113,17 @@ body::before {
 
 .animate-shimmer {
   animation: shimmer 3s ease-in-out infinite;
+}
+
+/* ─── Leaflet dark tile inversion ───────────────────────────────── */
+/* Invert OSM tiles to create a dark map without needing a paid API key */
+.leaflet-dark .leaflet-tile {
+  filter: invert(1) hue-rotate(180deg) brightness(0.88) saturate(0.6) contrast(0.9);
+}
+/* Keep markers, zoom controls, and popups un-inverted */
+.leaflet-dark .leaflet-marker-pane,
+.leaflet-dark .leaflet-shadow-pane,
+.leaflet-dark .leaflet-overlay-pane,
+.leaflet-dark .leaflet-control-container {
+  filter: invert(1) hue-rotate(180deg);
 }

@@ -105,15 +105,16 @@ export default function AboutPage() {
             I&apos;m always looking for the next challenge in AI-native design and creator tools.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <a 
-              href="mailto:mike@example.com"
+            <a
+              href="mailto:hi@mikeperezdigital.com"
               className="px-8 py-3 rounded-xl bg-white text-black font-medium hover:bg-white/90 transition-all"
             >
               Email me
             </a>
-            <a 
-              href="https://linkedin.com"
+            <a
+              href="https://linkedin.com/in/mikeperezdigital"
               target="_blank"
+              rel="noopener noreferrer"
               className="px-8 py-3 rounded-xl border border-white/10 text-white font-medium hover:bg-white/5 transition-all"
             >
               LinkedIn

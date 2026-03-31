@@ -27,7 +27,7 @@ export const labItems: LabItem[] = [
   {
     slug:        "aura",
     title:       "Aura",
-    description: "Vibe-based generative art that reads a mood and produces a visual response. Wired to Claude.",
+    description: "Vibe-based generative art that reads a mood and produces a visual response. Claude API integration in progress.",
     tags:        ["Claude API", "Generative Art"],
     status:      "beta",
     accent:      "rgba(140,80,200,0.12)",
