@@ -41,6 +41,22 @@ export const labItems: LabItem[] = [
     accent:      "rgba(80,200,120,0.12)",
   },
   {
+    slug:        "crew",
+    title:       "Crew",
+    description: "A landing page that plays like a music video. Beat-synced canvas visuals driven by a hand-keyed frequency timeline of GoldLink's 'Crew'.",
+    tags:        ["Canvas", "Beat Sync", "Easter Eggs"],
+    status:      "shipped",
+    accent:      "rgba(212,168,67,0.14)",
+  },
+  {
+    slug:        "cien",
+    title:       "Cien",
+    description: "Speak Spanish with the 100 most common words. Flashcards with phrase breakdowns, speech synthesis, and a grid that lights up as you learn.",
+    tags:        ["Learning", "Speech Synthesis"],
+    status:      "shipped",
+    accent:      "rgba(232,98,42,0.12)",
+  },
+  {
     slug:        "design-system",
     title:       "AI-Native Design System",
     description: "A living component library where every element includes the AI instructions used to generate it.",

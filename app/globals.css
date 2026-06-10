@@ -155,6 +155,37 @@ body::before {
   animation: shimmer 3s ease-in-out infinite;
 }
 
+/* ─── Crew lab piece ────────────────────────────────────────────── */
+.crew-display {
+  font-family: var(--font-bebas), "Bebas Neue", sans-serif;
+}
+
+@keyframes crew-marquee {
+  0%   { transform: translateX(100vw); }
+  100% { transform: translateX(-100%); }
+}
+
+.crew-marquee {
+  animation: crew-marquee 60s linear infinite;
+  white-space: nowrap;
+}
+
+@keyframes crew-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%      { transform: scale(1.4); opacity: 0.4; }
+}
+
+.crew-pulse-dot {
+  animation: crew-pulse 0.667s ease-in-out infinite;
+}
+
+@keyframes crew-confetti-fall {
+  to {
+    transform: translateY(110vh) rotate(540deg);
+    opacity: 0;
+  }
+}
+
 /* ─── Leaflet dark tile inversion ───────────────────────────────── */
 /* Invert OSM tiles to create a dark map without needing a paid API key */
 .leaflet-dark .leaflet-tile {
