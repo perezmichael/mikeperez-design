@@ -80,7 +80,7 @@ export function Hero() {
           <motion.div variants={item} className="flex flex-wrap items-center gap-4">
             <Link
               href="/work"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[var(--color-accent)] text-[var(--color-fg)] text-sm font-medium hover:brightness-110 transition-all"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[var(--color-accent)] text-[var(--color-on-accent)] text-sm font-medium hover:brightness-110 transition-all shadow-[var(--btn-glow)]"
             >
               View Work
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5">

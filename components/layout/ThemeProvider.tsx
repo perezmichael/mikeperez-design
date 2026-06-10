@@ -2,7 +2,9 @@
 
 import { createContext, useContext, useEffect, useState } from "react";
 
-type Theme = "dark" | "light";
+type Theme = "dark" | "light" | "isla" | "editorial" | "cinematic-noir";
+
+const THEMES: Theme[] = ["dark", "light", "isla", "editorial", "cinematic-noir"];
 
 interface ThemeContextType {
   theme: Theme;
@@ -18,7 +20,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     setMounted(true);
     const stored = localStorage.getItem("portfolio-theme") as Theme | null;
-    if (stored) {
+    if (stored && THEMES.includes(stored)) {
       setTheme(stored);
       document.documentElement.setAttribute("data-theme", stored);
     } else {

@@ -219,7 +219,7 @@ export function TitanChatPrototype() {
             <button
               type="submit"
               disabled={!input.trim() || isTyping}
-              className="absolute right-2 top-1.5 px-3 py-1 rounded-lg bg-[var(--color-accent)] text-white text-[10px] font-mono hover:bg-[var(--color-accent)]/80 disabled:opacity-20 transition-all"
+              className="absolute right-2 top-1.5 px-3 py-1 rounded-lg bg-[var(--color-accent)] text-[var(--color-on-accent)] text-[10px] font-mono hover:bg-[var(--color-accent)]/80 disabled:opacity-20 transition-all"
             >
               SEND
             </button>

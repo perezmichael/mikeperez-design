@@ -10,13 +10,15 @@
   --color-accent-2:  #d4a853;   /* warm gold — secondary */
   --color-fg:        #f0ebe3;   /* warm white — primary text */
   --color-muted:     #8a8278;   /* muted text */
+  --color-on-accent: #f0ebe3;   /* text on accent fills */
   --grain-opacity:   0.03;
   --selection-bg:    var(--color-accent);
   --btn-glow:        none;
 
   /* Typography */
-  --font-sans:  var(--font-space-grotesk);
-  --font-mono:  var(--font-space-mono);
+  --font-sans:    var(--font-space-grotesk);
+  --font-mono:    var(--font-space-mono);
+  --font-display: var(--font-space-grotesk);
 
   /* Spacing scale */
   --space-section: 7rem;
@@ -31,9 +33,42 @@
   --color-accent-2:  #D48853;   /* warm orange — secondary */
   --color-fg:        #2A2A28;   /* deep charcoal — primary text */
   --color-muted:     #7A7873;   /* muted text */
+  --color-on-accent: #F8F7F4;   /* text on accent fills */
   --grain-opacity:   0.015;
   --selection-bg:    var(--color-accent);
   --btn-glow:        none;
+}
+
+[data-theme="isla"] {
+  /* Palette — Isla (Caribbean editorial: sand, palm green, flamboyán pop) */
+  --color-bg:        #F7F4ED;   /* warm sand-cream */
+  --color-surface:   #FFFFFF;   /* pure white for cards */
+  --color-border:    #E5E0D2;   /* dry-sand border */
+  --color-accent:    #0F6E4F;   /* deep palm green — primary accent */
+  --color-accent-2:  #F2421B;   /* flamboyán red-orange — the rare pop */
+  --color-fg:        #21241F;   /* green-tinged ink — primary text */
+  --color-muted:     #7C7A6E;   /* warm olive-gray */
+  --color-on-accent: #F7F4ED;   /* sand text on green fills */
+  --grain-opacity:   0.015;
+  --selection-bg:    var(--color-accent-2);
+  --btn-glow:        none;
+  --font-display:    var(--font-syne);
+}
+
+[data-theme="editorial"] {
+  /* Palette — V2 Editorial (hand-tuned in portfolio-v2: Syne + cream + orange) */
+  --color-bg:        #F8F6F2;   /* warm cream */
+  --color-surface:   #FFFFFF;   /* pure white for cards */
+  --color-border:    #E2DED9;   /* subtle warm border */
+  --color-accent:    #E8622A;   /* burnt orange — primary accent */
+  --color-accent-2:  #FF8C42;   /* warm orange — secondary */
+  --color-fg:        #1A1A1A;   /* near-black — primary text */
+  --color-muted:     #78756F;   /* muted text */
+  --color-on-accent: #FFF0EB;   /* text on accent fills */
+  --grain-opacity:   0.015;
+  --selection-bg:    var(--color-accent);
+  --btn-glow:        none;
+  --font-display:    var(--font-syne);
 }
 
 [data-theme="cinematic-noir"] {
@@ -45,6 +80,7 @@
   --color-accent-2:  #E63900;   /* Vandell Burnt Orange */
   --color-fg:        #F2F2EE;   /* Parchment White */
   --color-muted:     #8A8A82;   /* Muted Olive */
+  --color-on-accent: #0C0C0C;   /* dark text on toxic lime */
   --grain-opacity:   0.03;
   --selection-bg:    #E63900;
   --btn-glow:        0 0 40px -5px rgba(230, 57, 0, 0.4);
@@ -78,6 +114,10 @@ body {
   font-family: var(--font-sans), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display), var(--font-sans), system-ui, sans-serif;
 }
 
 /* ─── Grain overlay ──────────────────────────────────────────────── */

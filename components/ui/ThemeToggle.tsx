@@ -39,6 +39,54 @@ export function ThemeToggle() {
         )}
         <span className="relative z-10">Warm Editorial</span>
       </button>
+
+      <button
+        onClick={() => setTheme("isla")}
+        className={`relative px-3 py-1.5 text-[10px] font-mono tracking-widest uppercase rounded-full transition-colors z-10 ${
+          theme === "isla" ? "text-white" : "text-[var(--color-muted)] hover:text-[var(--color-fg)]"
+        }`}
+      >
+        {theme === "isla" && (
+          <motion.div
+            layoutId="theme-active"
+            className="absolute inset-0 bg-[#0F6E4F] rounded-full -z-10"
+            transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+          />
+        )}
+        <span className="relative z-10">Isla</span>
+      </button>
+
+      <button
+        onClick={() => setTheme("editorial")}
+        className={`relative px-3 py-1.5 text-[10px] font-mono tracking-widest uppercase rounded-full transition-colors z-10 ${
+          theme === "editorial" ? "text-white" : "text-[var(--color-muted)] hover:text-[var(--color-fg)]"
+        }`}
+      >
+        {theme === "editorial" && (
+          <motion.div
+            layoutId="theme-active"
+            className="absolute inset-0 bg-[#E8622A] rounded-full -z-10"
+            transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+          />
+        )}
+        <span className="relative z-10">V2 Editorial</span>
+      </button>
+
+      <button
+        onClick={() => setTheme("cinematic-noir")}
+        className={`relative px-3 py-1.5 text-[10px] font-mono tracking-widest uppercase rounded-full transition-colors z-10 ${
+          theme === "cinematic-noir" ? "text-white" : "text-[var(--color-muted)] hover:text-[var(--color-fg)]"
+        }`}
+      >
+        {theme === "cinematic-noir" && (
+          <motion.div
+            layoutId="theme-active"
+            className="absolute inset-0 bg-[#E63900] rounded-full -z-10"
+            transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+          />
+        )}
+        <span className="relative z-10">Cinematic Noir</span>
+      </button>
     </div>
   );
 }
