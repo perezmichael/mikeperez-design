@@ -31,16 +31,15 @@ export function FlipB({ qrs }: { qrs: Record<string, string> }) {
         }
       `}</style>
 
-      <div className="relative h-[42dvh] min-h-[200px] shrink-0 overflow-hidden rounded-b-[36px]">
+      <div className="relative aspect-[900/785] w-full shrink-0 overflow-hidden rounded-b-[36px]">
         <Image
-          src={VALIO.photo}
+          src={VALIO.photoHero}
           alt="Mike Perez snowboarding"
           fill
           priority
           sizes="(max-width: 448px) 100vw, 448px"
           className="object-cover"
-          /* 65% puts the snow line (64% down the photo) just above the name */
-          style={{ objectPosition: "68% 65%" }}
+          style={{ objectPosition: "center" }}
         />
         {/* background-color + mask (not a gradient) so the fade animates with the theme */}
         <div className="absolute inset-0 bg-[var(--color-bg)] [mask-image:linear-gradient(to_bottom,transparent_30%,black_88%)]" />
@@ -85,7 +84,7 @@ export function FlipB({ qrs }: { qrs: Record<string, string> }) {
               {/* height-capped so Safari's toolbars can't push the bottom row off-screen */}
               <QrPlate
                 svg={qrs[link.id]}
-                className="w-full max-w-[min(42vw,17.5dvh,170px)] rounded-2xl p-[9%] ring-1 ring-[var(--color-border)] transition-transform group-active:scale-95"
+                className="w-full max-w-[min(42vw,15dvh,170px)] rounded-2xl p-[9%] ring-1 ring-[var(--color-border)] transition-transform group-active:scale-95"
               />
               <span className="mt-2 block text-center text-[12px] font-medium leading-tight">{link.short}</span>
             </button>

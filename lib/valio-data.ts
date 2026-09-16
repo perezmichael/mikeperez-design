@@ -18,6 +18,8 @@ export const VALIO = {
   about:
     "Ten years designing across fintech, AI, and Apple. These days I prototype in code with AI in the loop — and the best proof is something you can open on your phone.",
   photo: "/valio/mike-snow.jpg",
+  /* pre-cropped head-to-snow, so the Flip hero never clips his head */
+  photoHero: "/valio/mike-hero.jpg",
   avatar: "/valio/mike-avatar.jpg",
   contact: "/valio/contact",
   links: [
