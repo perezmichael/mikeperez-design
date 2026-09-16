@@ -4,6 +4,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ThemeProvider } from "@/components/layout/ThemeProvider";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
+import { SiteChrome } from "@/components/layout/SiteChrome";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -58,12 +59,9 @@ export default function RootLayout({
     >
       <body className="antialiased flex flex-col min-h-screen">
         <ThemeProvider>
-          <Navbar />
-          <div className="flex-1 pt-16">
+          <SiteChrome nav={<Navbar />} footer={<Footer />} toggle={<ThemeToggle />}>
             {children}
-          </div>
-          <Footer />
-          <ThemeToggle />
+          </SiteChrome>
         </ThemeProvider>
       </body>
     </html>

@@ -8,8 +8,8 @@ const links = {
     { href: "/about", label: "About" },
   ],
   social: [
-    { href: "https://linkedin.com/in/mikeperezdigital", label: "LinkedIn" },
-    { href: "https://instagram.com/frequentflyer",      label: "Instagram" },
+    { href: "https://www.linkedin.com/in/michaelwperez/", label: "LinkedIn" },
+    { href: "https://www.instagram.com/frequentflyerla/", label: "Instagram" },
     { href: "mailto:hi@mikeperezdigital.com",           label: "Email" },
   ],
 };

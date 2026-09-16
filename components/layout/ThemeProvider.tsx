@@ -41,7 +41,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   // or just render children (since we default to dark, if SSR is dark it matches)
   return (
     <ThemeContext.Provider value={value}>
-      <div style={{ visibility: mounted ? "visible" : "hidden" }}>
+      <div className={mounted ? undefined : "theme-gate"}>
         {children}
       </div>
     </ThemeContext.Provider>

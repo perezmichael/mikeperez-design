@@ -10,7 +10,7 @@
   --color-accent-2:  #d4a853;   /* warm gold — secondary */
   --color-fg:        #f0ebe3;   /* warm white — primary text */
   --color-muted:     #8a8278;   /* muted text */
-  --color-on-accent: #f0ebe3;   /* text on accent fills */
+  --color-on-accent: #0f0e0c;   /* dark text: light text can't reach AA on this orange */
   --grain-opacity:   0.03;
   --selection-bg:    var(--color-accent);
   --btn-glow:        none;
@@ -47,7 +47,7 @@
   --color-accent:    #0F6E4F;   /* deep palm green — primary accent */
   --color-accent-2:  #F2421B;   /* flamboyán red-orange — the rare pop */
   --color-fg:        #21241F;   /* green-tinged ink — primary text */
-  --color-muted:     #7C7A6E;   /* warm olive-gray */
+  --color-muted:     #6E6C62;   /* warm olive-gray */
   --color-on-accent: #F7F4ED;   /* sand text on green fills */
   --grain-opacity:   0.015;
   --selection-bg:    var(--color-accent-2);
@@ -60,10 +60,10 @@
   --color-bg:        #F8F6F2;   /* warm cream */
   --color-surface:   #FFFFFF;   /* pure white for cards */
   --color-border:    #E2DED9;   /* subtle warm border */
-  --color-accent:    #E8622A;   /* burnt orange — primary accent */
+  --color-accent:    #B5481A;   /* burnt orange — primary accent */
   --color-accent-2:  #FF8C42;   /* warm orange — secondary */
   --color-fg:        #1A1A1A;   /* near-black — primary text */
-  --color-muted:     #78756F;   /* muted text */
+  --color-muted:     #6F6C66;   /* muted text */
   --color-on-accent: #FFF0EB;   /* text on accent fills */
   --grain-opacity:   0.015;
   --selection-bg:    var(--color-accent);
@@ -118,6 +118,12 @@ body {
 
 h1, h2, h3 {
   font-family: var(--font-display), var(--font-sans), system-ui, sans-serif;
+}
+
+/* Hide until the stored theme applies. Pages marked data-valio set their own theme,
+   and blanking their QR codes on a slow network is worse than a theme flash. */
+.theme-gate:not(:has([data-valio])) {
+  visibility: hidden;
 }
 
 /* ─── Grain overlay ──────────────────────────────────────────────── */
@@ -183,6 +189,44 @@ body::before {
   to {
     transform: translateY(110vh) rotate(540deg);
     opacity: 0;
+  }
+}
+
+/* ─── Claura lab piece (Framer template recreation) ─────────────── */
+@keyframes claura-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.claura-marquee {
+  animation: claura-marquee 32s linear infinite;
+  width: max-content;
+}
+.claura-marquee-rev { animation-direction: reverse; animation-duration: 38s; }
+.claura-marquee-track:hover .claura-marquee { animation-play-state: paused; }
+
+@keyframes claura-float-a {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%      { transform: translate(7%, -5%) scale(1.1); }
+  66%      { transform: translate(-5%, 6%) scale(0.94); }
+}
+@keyframes claura-float-b {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(-8%, 7%) scale(1.15); }
+}
+.claura-aura-a { animation: claura-float-a 20s ease-in-out infinite; }
+.claura-aura-b { animation: claura-float-b 26s ease-in-out infinite; }
+
+@keyframes claura-shimmer {
+  to { background-position: 200% center; }
+}
+.claura-shimmer {
+  background-size: 200% auto;
+  animation: claura-shimmer 7s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .claura-marquee, .claura-aura-a, .claura-aura-b, .claura-shimmer {
+    animation: none !important;
   }
 }
 

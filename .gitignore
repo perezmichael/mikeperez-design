@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Local archive of the old Framer site (kept on disk, too heavy for git)
+/reference/mikeperezdigital-archive/assets/
+/reference/mikeperezdigital-archive/pages/
