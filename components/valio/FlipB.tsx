@@ -17,9 +17,16 @@ export function FlipB({ qrs }: { qrs: Record<string, string> }) {
     if (new URLSearchParams(window.location.search).has("dark")) setDark(true);
   }, []);
 
+  /* Chrome and older Safari tint their UI from theme-color rather than the page background */
+  useEffect(() => {
+    const meta = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]');
+    if (meta) meta.content = dark ? "#0C0C0C" : "#F7F4ED";
+  }, [dark]);
+
   return (
     <div
       data-valio
+      data-valio-tint
       data-theme={dark ? "cinematic-noir" : "isla"}
       className="valio-flip flex min-h-dvh flex-col bg-[var(--color-bg)] text-[var(--color-fg)]"
     >

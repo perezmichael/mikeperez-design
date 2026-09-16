@@ -8,7 +8,7 @@ const OPTIONS = [
 
 export default function ValioIndex() {
   return (
-    <div data-valio data-theme="isla" className="min-h-dvh bg-[var(--color-bg)] text-[var(--color-fg)]">
+    <div data-valio data-valio-tint data-theme="isla" className="min-h-dvh bg-[var(--color-bg)] text-[var(--color-fg)]">
       <main className="mx-auto max-w-md px-6 pb-12 pt-[max(3rem,env(safe-area-inset-top))]">
         <p className="font-mono text-[11px] uppercase tracking-widest text-[var(--color-accent)]">ValioCon cards</p>
         <h1 className="mt-3 text-4xl font-bold leading-tight tracking-tight">Pick a card.</h1>

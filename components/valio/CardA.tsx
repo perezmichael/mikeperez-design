@@ -15,7 +15,7 @@ export function CardA({ qrs }: { qrs: Record<string, string> }) {
   const [sheet, setSheet] = useState<number | null>(null);
 
   return (
-    <div data-valio data-theme="isla" className="min-h-dvh bg-[var(--color-bg)] text-[var(--color-fg)]">
+    <div data-valio data-valio-tint data-theme="isla" className="min-h-dvh bg-[var(--color-bg)] text-[var(--color-fg)]">
       <motion.main
         variants={stagger}
         initial="hidden"

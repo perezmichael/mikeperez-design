@@ -126,6 +126,18 @@ h1, h2, h3 {
   visibility: hidden;
 }
 
+/* Safari tints its status bar and toolbar from the html/body background, so /valio cards
+   carry their own background up the tree. Hex values mirror the Isla and Noir --color-bg
+   tokens: html can't read a descendant's custom properties. */
+html:has([data-valio-tint][data-theme="isla"]),
+html:has([data-valio-tint][data-theme="isla"]) body {
+  background-color: #F7F4ED;
+}
+html:has([data-valio-tint][data-theme="cinematic-noir"]),
+html:has([data-valio-tint][data-theme="cinematic-noir"]) body {
+  background-color: #0C0C0C;
+}
+
 /* ─── Grain overlay ──────────────────────────────────────────────── */
 body::before {
   content: "";
