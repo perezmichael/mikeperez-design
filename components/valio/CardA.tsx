@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { VALIO } from "@/lib/valio-data";
-import { QrPlate, QrSheet } from "./QrSheet";
+import { IconArrowUpRight, QrPlate, QrSheet } from "./QrSheet";
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 const rise = { hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0, transition: { duration: 0.5, ease } } };
@@ -71,9 +71,9 @@ export function CardA({ qrs }: { qrs: Record<string, string> }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`Open ${link.short} on this phone`}
-                  className="absolute right-3 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--color-border)] text-sm text-[var(--color-muted)]"
+                  className="absolute right-3 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--color-border)] text-[var(--color-muted)]"
                 >
-                  ↗
+                  <IconArrowUpRight />
                 </a>
               )}
             </motion.li>

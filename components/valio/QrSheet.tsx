@@ -5,6 +5,30 @@ import { AnimatePresence, motion } from "framer-motion";
 import type { ValioLink } from "@/lib/valio-data";
 import { cn } from "@/lib/utils";
 
+function IconChevron({ dir }: { dir: "left" | "right" }) {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <path d={dir === "left" ? "M15 5 8 12l7 7" : "M9 5l7 7-7 7"} />
+    </svg>
+  );
+}
+
+function IconClose() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" aria-hidden>
+      <path d="M6 6l12 12M18 6 6 18" />
+    </svg>
+  );
+}
+
+export function IconArrowUpRight({ size = 16 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <path d="M7 17 17 7M9 7h8v8" />
+    </svg>
+  );
+}
+
 /* Scanners need dark modules on a light field, so plates stay light in every theme */
 export function QrPlate({ svg, className }: { svg: string; className?: string }) {
   return (
@@ -125,9 +149,9 @@ export function QrSheet({ links, qrs, index, onIndex }: QrSheetProps) {
               ref={closeRef}
               onClick={() => onIndex(null)}
               aria-label="Close"
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-[var(--color-border)] text-lg"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-[var(--color-border)] text-[var(--color-muted)]"
             >
-              ✕
+              <IconClose />
             </button>
           </div>
 
@@ -163,24 +187,25 @@ export function QrSheet({ links, qrs, index, onIndex }: QrSheetProps) {
             <button
               onClick={() => step(-1)}
               aria-label="Previous code"
-              className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-[var(--color-border)] text-xl"
+              className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-[var(--color-border)] text-[var(--color-muted)]"
             >
-              ‹
+              <IconChevron dir="left" />
             </button>
             <a
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex h-12 flex-1 items-center justify-center rounded-full bg-[var(--color-accent)] font-medium text-[var(--color-on-accent)]"
+              className="flex h-12 flex-1 items-center justify-center gap-2 rounded-full bg-[var(--color-accent)] font-medium text-[var(--color-on-accent)]"
             >
-              Open {link.short} ↗
+              Open {link.short}
+              <IconArrowUpRight />
             </a>
             <button
               onClick={() => step(1)}
               aria-label="Next code"
-              className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-[var(--color-border)] text-xl"
+              className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-[var(--color-border)] text-[var(--color-muted)]"
             >
-              ›
+              <IconChevron dir="right" />
             </button>
           </div>
         </motion.div>
